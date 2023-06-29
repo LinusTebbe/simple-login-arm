@@ -1,11 +1,11 @@
 # Install npm packages
-FROM node:10.17.0-alpine AS npm
+FROM --platform=linux/arm64/v8 node:10.17.0-alpine AS npm
 WORKDIR /code
 COPY ./static/package*.json /code/static/
 RUN cd /code/static && npm ci
 
 # Main image
-FROM python:3.10
+FROM --platform=linux/arm64/v8 python:3.10
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE 1

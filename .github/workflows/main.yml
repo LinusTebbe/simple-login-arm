@@ -1,7 +1,7 @@
 name: Test and lint
 
 on:
-  label:
+  push:
 
 jobs:
   build:

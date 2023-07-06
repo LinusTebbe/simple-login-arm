@@ -916,9 +916,9 @@ def forward_email_to_mailbox(
     # change the from_header so the email comes from a reverse-alias
     # replace the email part in from: header
     old_from_header = msg[headers.FROM]
-    new_from_header = contact.new_addr()
-    add_or_replace_header(msg, "From", new_from_header)
-    LOG.d("From header, new:%s, old:%s", new_from_header, old_from_header)
+    new_reply_to_header = contact.new_addr()
+    add_or_replace_header(msg, "Reply-To", new_reply_to_header)
+    LOG.d("Reply-To header, new:%s, old:%s", new_reply_to_header, old_from_header)
 
     if reply_to_contact:
         reply_to_header = msg[headers.REPLY_TO]
